@@ -1,11 +1,14 @@
-import { cacheExchange, createClient, fetchExchange } from '@urql/core';
-import { registerUrql } from '@urql/next/rsc';
+import { cacheExchange, createClient, fetchExchange } from "@urql/core";
+import { registerUrql } from "@urql/next/rsc";
 
-const makeClient = () => {
+export function getClientSideClient() {
   return createClient({
-    url: 'https://spacex-production.up.railway.app/',
+    url: "https://spacex-production.up.railway.app/",
     exchanges: [cacheExchange, fetchExchange],
   });
-};
+}
 
-export const { getClient } = registerUrql(makeClient);
+export function getServerSideClient() {
+  const { getClient } = registerUrql(getClientSideClient);
+  return getClient();
+}
