@@ -1,5 +1,5 @@
-import { getServerSideClient } from "./spaceXClient";
-import { CeoQuery, CeoQueryResult } from "./queries/ceoQuery";
+import { getServerSideClient } from "../spaceXClient";
+import { CeoQuery, CeoQueryResult } from "../queries/ceoQuery";
 
 
 export async function getCeo(){

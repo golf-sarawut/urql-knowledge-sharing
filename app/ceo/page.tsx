@@ -1,4 +1,4 @@
-import { getCeo } from "../repositories/getCeo";
+import { getCeo } from "../repositories/server/getCeo";
 
 export default async function CEO() {
 

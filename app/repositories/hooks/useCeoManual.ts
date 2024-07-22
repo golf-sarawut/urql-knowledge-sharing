@@ -2,14 +2,15 @@
 import { useQuery } from "urql";
 import { CeoQuery, CeoQueryResult } from "../queries/ceoQuery";
 
-export function useCeo() {
+export function useCeoManual() {
   const [result, reexecuteQuery] = useQuery<CeoQueryResult>({
     query: CeoQuery,
+    pause: true,
   });
 
   return {
     ceoName: result.data?.company.ceo ?? "",
-    reexecuteQuery,
+    query: reexecuteQuery,
     isFetched: !result.fetching,
   };
 }
